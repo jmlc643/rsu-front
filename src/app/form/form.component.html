@@ -1,0 +1,93 @@
+<body>
+<h1>INFORME DEL PACIENTE</h1>
+<p>Responsabilidad Social Universitaria - Bioquimica Y Nutricion Humana</p>
+<p>Universidad Privada Antenor Orrego - Trujillo, Perú</p>
+<h4>Esta página se creó con el fin de hacer un diagnostico aproximado para la deteccion o prevencion del sindrome metabolico en personas mayores de 20 años. </h4>
+<hr>
+<form [formGroup]="createPatientFileForm" (ngSubmit)="saveFile()">
+  <h3>DATOS PERSONALES</h3>
+  <table>
+    <tr>
+      <td><label>Nombres del paciente</label></td>
+      <td>
+        <input formControlName="name" type="text" name="nombres del paciente">
+        <div *ngIf="name.invalid && (name.touched)">
+          <div *ngIf="createPatientFileForm.get('name')?.hasError('required')">
+            <p class="error">El nombre es requerido</p>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td><label>Apellidos del paciente</label></td>
+      <td>
+        <input formControlName="surnames" type="text" name="apellidos del paciente">
+        <div *ngIf="surnames.invalid && (surnames.touched)">
+          <div *ngIf="createPatientFileForm.get('surnames')?.hasError('required')">
+            <p class="error">Los apellidos son requerido</p>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td><label>Ocupación</label></td>
+      <td>
+        <input formControlName="job" type="text" name="ocupacion">
+        <div *ngIf="job.invalid && (job.touched)">
+          <div *ngIf="createPatientFileForm.get('job')?.hasError('required')">
+            <p class="error">La ocupación es requerida</p>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td><label>Género</label></td>
+      <td>
+        <select formControlName="gender" name="genero">
+        <option>
+        <option>Masculino
+        <option>Femenio
+      </select>
+        <div *ngIf="gender.invalid && (gender.touched)">
+          <div *ngIf="createPatientFileForm.get('gender')?.hasError('required')">
+            <p class="error">El género es requerido</p>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td><label>Edad</label></td>
+      <td>
+        <input formControlName="age" type="number" name="ocupacion">
+        <div *ngIf="age.invalid && (age.touched)">
+          <div *ngIf="createPatientFileForm.get('age')?.hasError('required')">
+            <p class="error">La edad es requerida</p>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+  <h3>EVALUACION ANTROPOMETRICA</h3>
+  <label class="alinear">Peso:</label>
+  <input  formControlName="weight" type="number" name="Peso">
+  <div *ngIf="weight.invalid && (weight.touched)">
+    <div *ngIf="createPatientFileForm.get('weight')?.hasError('required')">
+      <p class="error">El peso es requerido</p>
+    </div>
+  </div>
+
+  <label class="alinear">Talla:</label>
+  <input  formControlName="size" type="text" name="talla">
+  <div *ngIf="size.invalid && (size.touched)">
+    <div *ngIf="createPatientFileForm.get('size')?.hasError('required')">
+      <p class="error">La talla es requerida</p>
+    </div>
+  </div>
+
+  <input class="alinear" type="submit" name="enviar">
+
+</form>
+
+</body>

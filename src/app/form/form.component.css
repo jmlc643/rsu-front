@@ -1,0 +1,52 @@
+h1{
+  text-align: center;
+}
+
+p{
+  text-align: center;
+  font-weight: bold;
+  margin: 0;
+}
+
+td{
+  border: 1px solid black;
+  padding: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+table{
+  border: 1px solid black;
+  margin: 1em 0 1em 25em;
+}
+
+select{
+  width: 352px;
+}
+
+input{
+  width: 352px;
+}
+
+.ng-valid:not(form).ng-touched {
+  border-left: 5px solid #42a948;
+}
+
+.ng-invalid:not(form).ng-touched {
+  border-left: 5px solid #a94442;
+}
+
+.error{
+  color: #a94442;
+  text-align: justify;
+  padding-top: 5px;
+}
+
+.alinear{
+  display: flex;
+  margin: 10px 0 10px 0;
+}
+
+hr{
+  border-color: #E6B1A6;
+}
