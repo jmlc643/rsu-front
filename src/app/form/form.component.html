@@ -46,7 +46,7 @@
           <select formControlName="gender" name="genero" [(ngModel)]="patient.gender">
             <option>
             <option>Masculino
-            <option>Femenio
+            <option>Femenino
           </select>
           <div *ngIf="gender.invalid && (gender.touched)">
             <div *ngIf="createPatientFileForm.get('gender')?.hasError('required')">
@@ -73,7 +73,7 @@
 
     <hr>
     <h3 class="font-bold ml-5 mt-2">EVALUACION ANTROPOMETRICA</h3>
-    <label class="alinear">Peso:</label>
+    <label class="alinear">Peso(En kilogramos):</label>
     <input class="ml-5 mt-2" formControlName="weight" type="number" name="Peso" [(ngModel)]="patient.weight">
     <div *ngIf="weight.invalid && (weight.touched)">
       <div *ngIf="createPatientFileForm.get('weight')?.hasError('required')">
@@ -84,7 +84,7 @@
       </div>
     </div>
 
-    <label class="alinear">Talla:</label>
+    <label class="alinear">Talla(En metros):</label>
     <input class="ml-5 mt-2" formControlName="size" type="number" name="talla" [(ngModel)]="patient.size">
     <div *ngIf="size.invalid && (size.touched)">
       <div *ngIf="createPatientFileForm.get('size')?.hasError('required')">
