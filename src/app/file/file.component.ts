@@ -53,10 +53,11 @@ export class FileComponent implements OnInit{
 
   download(){
     const options = {
-      name : 'Evaluación Antropométroca.pdf',
-      image : {type: 'jpeg'},
-      html2canvas: {},
-      jsPDF: {orientation:'portrait', unit:'px'}
+      margin:       2,
+      filename:     'Evaluación Antropométrica.pdf',
+      image:        { type: 'jpeg', quality: 1 },
+      html2canvas:  { scale: 4 },
+      jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
     }
     const element = document.getElementById("descarga");
     html2pdf().from(element).set(options).save();
