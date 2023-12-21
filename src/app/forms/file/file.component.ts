@@ -1,7 +1,7 @@
 import {Component, inject, OnInit} from '@angular/core';
 // @ts-ignore
 import * as html2pdf from 'html2pdf.js';
-import {PatientFile, PatientFileApiService} from "../../api/patient-file/patient-file-api.service";
+import {PatientFile, PatientFileApiService} from "../../../api/patient-file/patient-file-api.service";
 import {ActivatedRoute} from "@angular/router";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
