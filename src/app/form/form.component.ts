@@ -2,7 +2,7 @@ import {Component, inject} from '@angular/core';
 import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {Patient, PatientApiService} from "../../api/patient/patient-api.service";
 import {Router} from "@angular/router";
-import {PatientFileApiService} from "../../api/patient-file/patient-file-api.service";
+import {PatientFile, PatientFileApiService, SearchPatient} from "../../api/patient-file/patient-file-api.service";
 import {HttpClientModule} from "@angular/common/http";
 import {NgIf} from "@angular/common";
 
@@ -27,6 +27,12 @@ export class FormComponent {
     size: 0
   }
 
+  patientFile? : any;
+  searchPatient : SearchPatient = {
+    name : "",
+    surnames : ""
+  }
+
   //En caso de errores
   formError: string = "";
 
@@ -41,7 +47,7 @@ export class FormComponent {
     surnames: ['', Validators.required],
     job: ['', Validators.required],
     gender: ['', Validators.required],
-    age: ['', [Validators.required, Validators.min(0)]],
+    age: ['', [Validators.required, Validators.min(1)]],
     weight: ['', [Validators.required, Validators.min(0)]],
     size: ['', [Validators.required, Validators.min(0)]]
   })
@@ -79,6 +85,7 @@ export class FormComponent {
       this.patientFileApiService.savePatientFile(this.patient).subscribe({
         next: (patientFileData)=> {
           console.log(patientFileData);
+          this.patientFile = patientFileData;
         },
         error: (errorData) => {
           console.error(errorData);
@@ -86,7 +93,7 @@ export class FormComponent {
         },
         complete: () => {
           console.info("Creacion completada");
-          this.router.navigateByUrl('/ficha');
+          this.router.navigateByUrl('/ficha/'+this.patientFile.id);
           this.createPatientFileForm.reset();
         }
       });

@@ -1,44 +1,50 @@
-<table>
+<div class="p-5 flex flex-col items-center">
+  <table class="bg-white" id="descarga">
   <tr>
     <th colspan="4">FICHA DEL PACIENTE</th>
   </tr>
   <tr>
-    <td>N° Ficha: </td>
-    <td>1</td>
-    <td>NRC: </td>
+    <td class="atributo">N° Ficha:</td>
+    <td>{{patientFile.id}}</td>
+    <td class="atributo">NRC:</td>
     <td>8026</td>
   </tr>
   <tr>
-    <td>Nombre: </td>
-    <td>José María</td>
-    <td>Apellidos: </td>
-    <td>Luyo Campos</td>
+    <td class="atributo">Nombre:</td>
+    <td>{{patientFile.patient.name}}</td>
+    <td class="atributo">Apellidos:</td>
+    <td>{{patientFile.patient.surnames}}</td>
   </tr>
   <tr>
-    <td>Ocupación: </td>
-    <td>Estudiante</td>
-    <td>Sexo: </td>
-    <td>Masculino</td>
+    <td class="atributo">Ocupación:</td>
+    <td>{{patientFile.patient.job}}</td>
+    <td class="atributo">Sexo:</td>
+    <td>{{patientFile.patient.gender}}</td>
   </tr>
   <tr>
-    <td>Edad: </td>
-    <td>19</td>
-    <td>Peso: </td>
-    <td>70 Kg</td>
+    <td class="atributo">Edad:</td>
+    <td>{{patientFile.patient.age}} años</td>
+    <td class="atributo">Peso:</td>
+    <td>{{patientFile.patient.weight}} Kg</td>
   </tr>
   <tr>
-    <td colspan="2">Talla: </td>
-    <td colspan="2">1.70 m</td>
+    <td colspan="2" class="atributo">Talla:</td>
+    <td colspan="2">{{patientFile.patient.size}} m</td>
   </tr>
   <tr>
     <th colspan="4">RESULTADOS DE EVALUACIÓN ANTROPOMÉTRICA</th>
   </tr>
   <tr>
-    <td colspan="2">IMC: </td>
-    <td colspan="2">20.564</td>
+    <td colspan="2" class="atributo">IMC:</td>
+    <td colspan="2">{{patientFile.imc}}</td>
   </tr>
   <tr>
-    <td colspan="2">Diagnóstico: </td>
-    <td colspan="2">Obesidad</td>
+    <td colspan="2" class="atributo">Diagnóstico:</td>
+    <td colspan="2">{{patientFile?.observation}}</td>
   </tr>
 </table>
+  <div class="content-center">
+    <p class="mt-8 text-2xl">Si quieres descargar este informe haz click en el botón</p>
+    <button class="boton" (click)="download()">Descargar</button>
+  </div>
+</div>

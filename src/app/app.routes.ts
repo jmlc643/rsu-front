@@ -4,5 +4,5 @@ import {FileComponent} from "./file/file.component";
 
 export const routes: Routes = [
   {path: '', component: FormComponent},
-  {path: 'ficha', component: FileComponent}
+  {path: 'ficha/:id', component: FileComponent}
 ];

@@ -11,6 +11,11 @@ export interface PatientFile{
   patient: Patient
 }
 
+export interface SearchPatient{
+  name: string,
+  surnames: string
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -23,5 +28,9 @@ export class PatientFileApiService {
 
   savePatientFile(patient: Patient):Observable<any>{
     return this.httpClient.post<any>(environment.urlHost+'/patient-file/save/', patient);
+  }
+
+  searchPatientFileId(id: number){
+    return lastValueFrom(this.httpClient.post<PatientFile>(environment.urlHost+'/patient-file/search/id/', id));
   }
 }
