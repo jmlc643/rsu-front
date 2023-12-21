@@ -1,16 +1,11 @@
 import {Component, inject} from '@angular/core';
-import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
-import {Patient, PatientApiService} from "../../../api/patient/patient-api.service";
+import {FormBuilder, Validators} from "@angular/forms";
+import {Patient} from "../../../api/patient/patient-api.service";
 import {Router} from "@angular/router";
-import {PatientFile, PatientFileApiService, SearchPatient} from "../../../api/patient-file/patient-file-api.service";
-import {HttpClientModule} from "@angular/common/http";
-import {NgIf} from "@angular/common";
+import {PatientFile, PatientFileApiService} from "../../../api/patient-file/patient-file-api.service";
 
 @Component({
   selector: 'app-form',
-  standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, HttpClientModule, NgIf],
-  providers: [PatientFileApiService, PatientApiService],
   templateUrl: './form.component.html',
   styleUrl: './form.component.css'
 })
@@ -27,11 +22,7 @@ export class FormComponent {
     size: 0
   }
 
-  patientFile? : any;
-  searchPatient : SearchPatient = {
-    name : "",
-    surnames : ""
-  }
+  patientFile? : PatientFile;
 
   //En caso de errores
   formError: string = "";
@@ -93,7 +84,7 @@ export class FormComponent {
         },
         complete: () => {
           console.info("Creacion completada");
-          this.router.navigateByUrl('/ficha/'+this.patientFile.id);
+          this.router.navigateByUrl('/ficha/'+this.patientFile?.id);
           this.createPatientFileForm.reset();
         }
       });

@@ -3,15 +3,10 @@ import {Component, inject, OnInit} from '@angular/core';
 import * as html2pdf from 'html2pdf.js';
 import {PatientFile, PatientFileApiService} from "../../../api/patient-file/patient-file-api.service";
 import {ActivatedRoute} from "@angular/router";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
 
 
 @Component({
   selector: 'app-file',
-  standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, HttpClientModule],
-  providers: [PatientFileApiService],
   templateUrl: './file.component.html',
   styleUrl: './file.component.css'
 })
