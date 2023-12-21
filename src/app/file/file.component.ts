@@ -1,20 +1,16 @@
 import {Component, inject, OnInit} from '@angular/core';
-import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts'
 // @ts-ignore
 import * as html2pdf from 'html2pdf.js';
 import {PatientFile, PatientFileApiService} from "../../api/patient-file/patient-file-api.service";
 import {ActivatedRoute} from "@angular/router";
-import {Patient, PatientApiService} from "../../api/patient/patient-api.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import {NgIf} from "@angular/common";
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
 
 @Component({
   selector: 'app-file',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, HttpClientModule, NgIf],
+  imports: [FormsModule, ReactiveFormsModule, HttpClientModule],
   providers: [PatientFileApiService],
   templateUrl: './file.component.html',
   styleUrl: './file.component.css'
@@ -57,10 +53,11 @@ export class FileComponent implements OnInit{
 
   download(){
     const options = {
-      name : 'Evaluación Antropométroca.pdf',
-      image : {type: 'jpeg'},
-      html2canvas: {},
-      jsPDF: {orientation:'portrait', unit:'px'}
+      margin:       2,
+      filename:     'Evaluación Antropométrica.pdf',
+      image:        { type: 'jpeg', quality: 1 },
+      html2canvas:  { scale: 4 },
+      jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
     }
     const element = document.getElementById("descarga");
     html2pdf().from(element).set(options).save();
