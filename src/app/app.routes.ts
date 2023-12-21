@@ -1,7 +1,7 @@
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from "@angular/core";
 
-export const routes: Routes = [
+const routes: Routes = [
   { path: '', loadChildren: () => import('./file-form/file-form.module').then((m) => m.FileFormModule) }
 ];
 
