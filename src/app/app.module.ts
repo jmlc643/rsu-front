@@ -1,7 +1,7 @@
 import {NgModule} from "@angular/core";
 import {AppComponent} from "./app.component";
 import {CommonModule} from "@angular/common";
-import {RouterOutlet} from "@angular/router";
+import {RouterModule, RouterOutlet} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -16,6 +16,7 @@ import {PatientApiService} from "../api/patient/patient-api.service";
   imports : [
     CommonModule,
     RouterOutlet,
+    RouterModule,
     HttpClientModule,
     BrowserModule,
     FormsModule,
