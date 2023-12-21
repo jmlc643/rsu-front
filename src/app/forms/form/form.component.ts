@@ -1,8 +1,8 @@
 import {Component, inject} from '@angular/core';
 import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
-import {Patient, PatientApiService} from "../../api/patient/patient-api.service";
+import {Patient, PatientApiService} from "../../../api/patient/patient-api.service";
 import {Router} from "@angular/router";
-import {PatientFile, PatientFileApiService, SearchPatient} from "../../api/patient-file/patient-file-api.service";
+import {PatientFile, PatientFileApiService, SearchPatient} from "../../../api/patient-file/patient-file-api.service";
 import {HttpClientModule} from "@angular/common/http";
 import {NgIf} from "@angular/common";
 
