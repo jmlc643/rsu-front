@@ -8,14 +8,10 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AppRoutes} from "./app.routes";
 import {PatientFileApiService} from "../api/patient-file/patient-file-api.service";
 import {PatientApiService} from "../api/patient/patient-api.service";
-import {FileComponent} from "./file-form/file/file.component";
-import {FormComponent} from "./file-form/form/form.component";
 
 @NgModule({
   declarations : [
-    AppComponent,
-    FileComponent,
-    FormComponent
+    AppComponent
   ],
   imports : [
     CommonModule,
